@@ -8,7 +8,7 @@ namespace DataAccess.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=localhost;Database=FyStore;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=localhost;Database=Northwind;Trusted_Connection=true");
         }
 
         public DbSet<User> Users { get; set; }
