@@ -15,7 +15,7 @@ namespace DataAccess.Concrete.EntityFramework
                              join categories in context.Categories
                              on products.CategoryId equals categories.CategoryId
                              where products.CategoryId == categoryId
-                             select new ProductDetailDto { ProductId = products.ProductId, CategoryName = categories.CategoryName, ProductName = products.ProductName, UnitPrice = products.UnitPrice, UnitsInStock = products.UnitsInStock };
+                             select new ProductDetailDto { ProductId = products.ProductId, CategoryName = categories.CategoryName, ProductName = products.ProductName, UnitPrice = products.UnitPrice, UnitsInStock = products.UnitsInStock, ImageUrl = products.ImageUrl };
 
                 return result.ToList();
             }
@@ -28,7 +28,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from products in context.Products
                              join categories in context.Categories
                              on products.CategoryId equals categories.CategoryId
-                             select new ProductDetailDto { ProductId = products.ProductId, CategoryName = categories.CategoryName, ProductName = products.ProductName, UnitPrice = products.UnitPrice, UnitsInStock = products.UnitsInStock };
+                             select new ProductDetailDto { ProductId = products.ProductId, CategoryName = categories.CategoryName, ProductName = products.ProductName, UnitPrice = products.UnitPrice, UnitsInStock = products.UnitsInStock, ImageUrl = products.ImageUrl };
 
                 return result.ToList();
             }
@@ -42,7 +42,7 @@ namespace DataAccess.Concrete.EntityFramework
                              join categories in context.Categories
                              on products.CategoryId equals categories.CategoryId
                              where products.ProductId == productId
-                             select new ProductDetailDto { ProductId = products.ProductId, CategoryName = categories.CategoryName, ProductName = products.ProductName, UnitPrice = products.UnitPrice, UnitsInStock = products.UnitsInStock };
+                             select new ProductDetailDto { ProductId = products.ProductId, CategoryName = categories.CategoryName, ProductName = products.ProductName, UnitPrice = products.UnitPrice, UnitsInStock = products.UnitsInStock, ImageUrl = products.ImageUrl };
 
                 return result.SingleOrDefault();
             }
