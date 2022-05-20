@@ -27,7 +27,7 @@ namespace Business.BusinessAspects.Autofac
                 if (roleClaims.Contains(role))
                     return;
 
-            throw new Exception(Messages.AuthorizationDenied);
+            throw new UnauthorizedAccessException(Messages.AuthorizationDenied);
         }
     }
 }

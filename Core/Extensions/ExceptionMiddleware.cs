@@ -2,6 +2,7 @@
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
 using System.Net;
+using System.Security.Authentication;
 
 namespace Core.Extensions
 {
@@ -37,13 +38,24 @@ namespace Core.Extensions
             {
                 message = e.Message;
                 errors = ((ValidationException)e).Errors;
-                httpContext.Response.StatusCode = 400;
+                httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
 
                 return httpContext.Response.WriteAsync(new ValidationErrorDetails
                 {
-                    StatusCode = 400,
+                    StatusCode = httpContext.Response.StatusCode,
                     Message = message,
                     Errors = errors
+                }.ToString());
+            }
+            else if (e.GetType() == typeof(UnauthorizedAccessException))
+            {
+                message = e.Message;
+                httpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+
+                return httpContext.Response.WriteAsync(new ErrorDetails
+                {
+                    StatusCode = httpContext.Response.StatusCode,
+                    Message = message,
                 }.ToString());
             }
 
