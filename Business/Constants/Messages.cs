@@ -2,19 +2,22 @@
 {
     public class Messages
     {
-        public static string ProductAdded = "Ürün başarıyla eklendi";
-        public static string ProductDeleted = "Ürün başarıyla silindi";
-        public static string ProductUpdated = "Ürün başarıyla güncellendi";
-        public static string ProductNotFound = "Ürün bulunamadı";
+        public static string ProductAdded = "The product has been successfully added";
+        public static string ProductDeleted = "The product was successfully deleted";
+        public static string ProductUpdated = "The product has been successfully updated";
+        public static string ProductNotFound = "Product not found";
 
-        public static string UserNotFound = "Kullanıcı bulunamadı";
-        public static string PasswordError = "Şifre hatalı";
-        public static string SuccessfulLogin = "Sisteme giriş başarılı";
-        public static string UserAlreadyExists = "Bu kullanıcı zaten mevcut";
-        public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
-        public static string AccessTokenCreated = "Giriş işlemi başarılı";
+        public static string UserNotFound = "User not found";
+        public static string PasswordError = "Password is incorrect";
+        public static string SuccessfulLogin = "Login successful";
+        public static string UserAlreadyExists = "This user already exists";
+        public static string UserRegistered = "User registered successfully";
+        public static string AccessTokenCreated = "Login successful";
 
-        public static string AuthorizationDenied = "Yetkiniz yok";
-        public static string ProductNameAlreadyExists = "Ürün ismi zaten mevcut";
+        public static string AuthorizationDenied = "You are not authorized";
+        public static string ProductNameAlreadyExists = "Product name already exists";
+
+        public static string ProductNameLength = "The product name should consist of 2-30 characters";
+        public static string UnitPriceGreaterThan = "Unit price must be greater than 5";
     }
 }
