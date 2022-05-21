@@ -2,7 +2,6 @@
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
 using System.Net;
-using System.Security.Authentication;
 
 namespace Core.Extensions
 {
