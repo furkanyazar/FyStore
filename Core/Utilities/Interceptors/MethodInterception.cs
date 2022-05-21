@@ -12,7 +12,7 @@ namespace Core.Utilities.Interceptors
         {
         }
 
-        protected virtual void OnException(IInvocation invocation, System.Exception e)
+        protected virtual void OnException(IInvocation invocation, Exception e)
         {
         }
 

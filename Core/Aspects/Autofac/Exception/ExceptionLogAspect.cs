@@ -1,6 +1,6 @@
 ﻿using Castle.DynamicProxy;
 using Core.CrossCuttingConcerns.Logging;
-using Core.CrossCuttingConcerns.Logging.Log4Net;
+using Core.CrossCuttingConcerns.Logging.Serilog;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Messages;
 
@@ -24,7 +24,7 @@ namespace Core.Aspects.Autofac.Exception
         {
             LogDetailWithException logDetailWithException = GetLogDetail(invocation);
             logDetailWithException.ExceptionMessage = e.Message;
-            _loggerServiceBase.Error(logDetailWithException);
+            _loggerServiceBase.Error(logDetailWithException.ExceptionMessage);
         }
 
         private LogDetailWithException GetLogDetail(IInvocation invocation)

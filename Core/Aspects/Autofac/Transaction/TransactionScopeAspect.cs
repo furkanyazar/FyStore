@@ -13,13 +13,11 @@ namespace Core.Aspects.Autofac.Transaction
                 try
                 {
                     invocation.Proceed();
-
                     transactionScope.Complete();
                 }
                 catch (System.Exception e)
                 {
                     transactionScope.Dispose();
-
                     throw;
                 }
             }

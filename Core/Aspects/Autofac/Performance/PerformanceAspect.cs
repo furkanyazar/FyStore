@@ -14,7 +14,6 @@ namespace Core.Aspects.Autofac.Performance
         public PerformanceAspect(int interval)
         {
             _interval = interval;
-
             _stopwatch = ServiceTool.ServiceProvider.GetService<Stopwatch>();
         }
 
