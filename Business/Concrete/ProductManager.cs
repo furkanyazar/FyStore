@@ -3,7 +3,10 @@ using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Logging;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -49,12 +52,14 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(5)]
         public IDataResult<List<ProductDetailDto>> GetAll()
         {
             return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetAllWithProductDetailDto());
         }
 
         [CacheAspect(duration: 30)]
+        [LogAspect(typeof(FileLogger))]
         public IDataResult<List<ProductDetailDto>> GetAllByCategoryId(int categoryId)
         {
             return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetAllByCategoryIdWithProductDetailDto(categoryId));
