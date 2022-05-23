@@ -52,14 +52,14 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
-        [PerformanceAspect(5)]
+        //[PerformanceAspect(5)]
         public IDataResult<List<ProductDetailDto>> GetAll()
         {
             return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetAllWithProductDetailDto());
         }
 
         [CacheAspect(duration: 30)]
-        [LogAspect(typeof(FileLogger))]
+        //[LogAspect(typeof(FileLogger))]
         public IDataResult<List<ProductDetailDto>> GetAllByCategoryId(int categoryId)
         {
             return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetAllByCategoryIdWithProductDetailDto(categoryId));
