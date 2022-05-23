@@ -52,6 +52,7 @@ namespace Core.Aspects.Autofac.Logging
                     ? "?"
                     : _httpContextAccessor.HttpContext.User.Identity.Name
             };
+
             return JsonConvert.SerializeObject(logDetail);
         }
     }
