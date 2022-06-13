@@ -25,7 +25,7 @@ namespace Core.Aspects.Autofac.Logging
             _httpContextAccessor = ServiceTool.ServiceProvider.GetService<IHttpContextAccessor>();
         }
 
-        protected override void OnBefore(IInvocation invocation)
+        protected override void OnAfter(IInvocation invocation)
         {
             _loggerServiceBase?.Info(GetLogDetail(invocation));
         }
@@ -45,6 +45,7 @@ namespace Core.Aspects.Autofac.Logging
 
             var logDetail = new LogDetail
             {
+                FullName = invocation.Method.ReflectedType.FullName,
                 MethodName = invocation.Method.Name,
                 LogParameters = logParameters,
                 User = (_httpContextAccessor.HttpContext == null ||

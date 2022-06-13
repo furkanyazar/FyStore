@@ -39,6 +39,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 
 builder.Services.AddTransient<FileLogger>();
+builder.Services.AddTransient<MsSqlLogger>();
 
 // Custom dependency resolvers
 builder.Services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
