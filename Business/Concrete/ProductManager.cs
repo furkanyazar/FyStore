@@ -15,10 +15,12 @@ namespace Business.Concrete
     public class ProductManager : IProductService
     {
         private IProductDal _productDal;
+        private ILogService _logService;
 
-        public ProductManager(IProductDal productDal)
+        public ProductManager(IProductDal productDal, ILogService logService)
         {
             _productDal = productDal;
+            _logService = logService;
         }
 
         [SecuredOperation("Admin")]
@@ -51,6 +53,8 @@ namespace Business.Concrete
         [CacheAspect]
         public IDataResult<List<ProductDetailDto>> GetAll()
         {
+            //_logService.Add(new Custom2022 { Message = "Test mesajı", Data = JsonConvert.SerializeObject(new { id = 1, name = "test" }) });
+
             return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetAllWithProductDetailDto());
         }
 

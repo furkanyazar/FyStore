@@ -17,7 +17,7 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
                                 .Get<FileLogConfiguration>() ??
                             throw new Exception(SerilogMessages.NullOptionsMessage);
 
-            var logFilePath = string.Format("{0}{1}", Directory.GetCurrentDirectory() + logConfig.FolderPath, ".txt");
+            var logFilePath = string.Format("{0}{1}", Directory.GetCurrentDirectory() + logConfig.FolderPath + DateTime.Now.Year + "/", ".txt");
 
             Logger = new LoggerConfiguration()
                 .WriteTo.File(
